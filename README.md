@@ -1,6 +1,6 @@
 # modproxy.js
 
-developed for calling function in another context
+developed for calling functions,using variables in different context
 
 
 
