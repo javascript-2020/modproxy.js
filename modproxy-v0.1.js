@@ -14,12 +14,9 @@ function modproxy(notfound){
       return newproxy();
       
       function getter(target,name,receiver,lname){
-
-            lname+='.'+name;
             
             if(name==='valueOf'){
-                  var i=lname.lastIndexOf('.');
-                  lname=lname.slice(1,i);
+                  lname=lname.slice(1);
                   if(lname in mem){
                         var v=mem[lname];
                                                 log(`rd : ${lname} - ${v}`);
@@ -29,6 +26,7 @@ function modproxy(notfound){
                   return;
             }
             
+            lname+='.'+name;
             return newproxy(()=>{},lname);
       
       }//getter
