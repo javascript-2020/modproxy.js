@@ -74,6 +74,7 @@ function modproxy(notfound){
             if(typeof modproxy.log==='function')return modproxy.log.apply(null,arguments);
             if(modproxy.log!==undefined)return;
             console.log.apply(null,arguments);
+            
       }//log
       
 }//modproxy
