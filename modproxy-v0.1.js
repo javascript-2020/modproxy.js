@@ -33,9 +33,9 @@ function modproxy(notfound){
       
       }//getter
       
-      function setter(obj,prop,newval,lname){
+      function setter(target,name,newval,lname){
       
-            lname+='.'+prop;
+            lname+='.'+name;
             lname=lname.slice(1);
                                                 log(`wt : ${lname} - ${newval}`);
             mem[lname]=newval;
