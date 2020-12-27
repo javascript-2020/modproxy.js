@@ -57,7 +57,7 @@ function modproxy(notfound){
       
       function newproxy(target,lname){
       
-            target=target||{};
+            target=target||(()=>{});
             lname=lname||'';
             
             return new Proxy(target,{
