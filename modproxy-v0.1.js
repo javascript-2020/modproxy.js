@@ -48,7 +48,7 @@ function modproxy(notfound){
                   var v=mem[lname];
                   if(typeof v==='function'){
                                                 log(`fn : ${lname} - [${args}]`);
-                        return v.call(thisArg,args);
+                        return v.apply(thisArg,args);
                   }
                   return v;
             }
