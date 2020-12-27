@@ -64,7 +64,7 @@ function modproxy(notfound){
             
             return new Proxy(target,{
                       get:(target,name,receiver)=>{return getter(target,name,receiver,lname);},
-                      set:(obj,prop,newval)=>{return setter(obj,prop,newval,lname);},
+                      set:(target,name,newval)=>{return setter(target,name,newval,lname);},
                       apply:(target,thisArg,args)=>{return applyer(target,thisArg,args,lname);}
             });
       
