@@ -73,7 +73,7 @@ function modproxy(notfound){
       
       function log(){
             
-            if(modproxy.log)modproxy.log.apply(null,arguments);
+            if(modproxy.log)return modproxy.log.apply(null,arguments);
             console.log.apply(null,arguments);
       }//log
       
