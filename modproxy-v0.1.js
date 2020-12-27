@@ -20,14 +20,13 @@ function modproxy(notfound){
             if(name==='valueOf'){
                   var i=lname.lastIndexOf('.');
                   lname=lname.slice(1,i);
-                  var v;
                   if(lname in mem){
-                        v=mem[lname];
+                        var v=mem[lname];
                                                 log(`rd : ${lname} - ${v}`);
-                        
+                        return v;
                   }
                                                 log(`rd (not found) : ${lname}`);
-                  return v;
+                  return;
             }
             
             return newproxy(()=>{},lname);
