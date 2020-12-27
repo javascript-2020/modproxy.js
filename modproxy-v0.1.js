@@ -23,10 +23,10 @@ function modproxy(notfound){
                   var v;
                   if(lname in mem){
                         v=mem[lname];
-                                                console.log(`rd : ${lname} - ${v}`);
+                                                log(`rd : ${lname} - ${v}`);
                         
                   }
-                                                console.log(`rd (not found) : ${lname}`);
+                                                log(`rd (not found) : ${lname}`);
                   return v;
             }
             
@@ -38,7 +38,7 @@ function modproxy(notfound){
       
             lname+='.'+prop;
             lname=lname.slice(1);
-                                                console.log(`wt : ${lname} - ${newval}`);
+                                                log(`wt : ${lname} - ${newval}`);
             mem[lname]=newval;
                       
       }//setter
@@ -50,12 +50,12 @@ function modproxy(notfound){
             if(lname in mem){
                   var v=mem[lname];
                   if(typeof v==='function'){
-                                                console.log(`fn : ${lname} - [${args}]`);
+                                                log(`fn : ${lname} - [${args}]`);
                         return v.call(thisArg,args);
                   }
                   return v;
             }
-                                                console.log(`fn (not found): ${lname} - [${args}]`);                              
+                                                log(`fn (not found): ${lname} - [${args}]`);                              
       }//applyer
       
       function newproxy(target,lname){
@@ -71,4 +71,11 @@ function modproxy(notfound){
       
       }//proxy
 
+      
+      function log(){
+            
+            if(modproxy.log)modproxy.log.apply(null,arguments);
+            console.log.apply(null,arguments);
+      }//log
+      
 }//modproxy
